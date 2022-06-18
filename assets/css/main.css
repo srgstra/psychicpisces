@@ -1,0 +1,435 @@
+/*
+Design and Front-End,
+@sergestra | www.sergestra.com
+  ____                           _            
+ |___ \___ __ _ _ __  ___  ___ _| |__ _ _ __  
+ / ___/ _ |__` | '_ \/ _ \|__ |__ |__` | '_ \ 
+| (___\__  | | | |_) \__  / __/_| |  | | |_) |
+ \____|___/  |_| .__/|___/\___|__/   |_|_.__/ 
+                \___|
+Copyright © Psychic Pisces 2022 | www.psychicpisces.com
+*/
+
+:root {
+	/* Colors */
+	--light-bg: #F4F4F4;
+	--dark-bg: #231F20;
+	--blue: #1D74F8;
+	--white: #ffffff;
+	--light-shadow: #D9D9D9;
+	--inner-border: rgba(255,255,255,0.35);
+	/* Font sizes */
+	--title: 0.875rem;
+	--small-link: 0.75rem;
+	--paragraph: 1rem;
+	--heading2: 1.25rem;
+	/* Font weights */
+	--weightReg: 0;
+	--weightMed: 500;
+	--weightBold: 700;
+	/* Font letter spacing */
+	--linksandtitles: 0.08rem;
+	/* Grid */
+	--grid: 0.5rem;
+}
+
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,500;0,700;1,400&display=swap');
+
+/* Basic reset */
+* {
+	padding: 0;
+	margin: 0;
+}
+
+html,
+body {
+	height: 100%;
+}
+
+body {
+	font-family: 'Archivo', sans-serif;
+	-webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	background-color: #F6F6F6;
+}
+
+.container {
+	max-width: 1440px;
+	margin: 0 auto;
+	padding:var(--grid) calc(var(--grid) * 4);
+}
+
+/*
+section.hero .container {
+	border: 1px solid var(--inner-border);
+}
+*/
+
+/* Fonts stlying -------------------------------------------------------- */
+h2 {
+	font-size: var(--heading2);
+	font-weight: var(--weightReg);
+}
+
+.title {
+	font-size: var(--title);
+	font-weight: var(--weightBold);
+}
+
+.link {
+	font-size: (--title);
+	font-weight: var(--weightReg);
+}
+
+.copyright {
+	font-size: var(--small-link);
+	font-weight: var(--weightReg);
+}
+
+.icon {
+	font-size: var(--paragraph);
+	font-weight: var(--weightReg);
+}
+
+.disabled {
+	opacity: 0.5;
+}
+
+/* Button styling */
+.btn {
+	display: block;
+	padding: 1rem 2.5rem;
+	border-radius: 0.375rem;
+	text-align: center;
+	cursor: pointer;
+}
+
+/* Main stlying -------------------------------------------------------- */
+header {
+	background-color: var(--dark-bg);
+	padding: var(--grid) 0;
+}
+
+header nav {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+header nav ul {
+	list-style: none;
+}
+
+header nav ul:nth-child(2) {
+	display: flex;
+	align-items: center;
+}
+
+header nav ul:nth-child(2) li:nth-child(1) {
+	margin-right: calc(var(--grid) * 4);
+}
+
+header nav ul a {
+	text-decoration: none;
+}
+
+header nav ul li {
+	color: var(--white);
+	user-select: none;
+	font-weight: var(--weightMed);
+}
+
+header {
+	padding: var(--grid) calc(var(--grid) * 6);
+}
+
+section {
+	padding: calc(var(--grid) * 6);
+}
+
+section.hero {
+	position: relative;
+	background-image: url(../img/jpg/conscious-design-pWWdJ4qx0h4-unsplash-2.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 50% 30%;
+}
+
+section.hero::before {
+	display: block;
+	content: '';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index:1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgb(35,31,32);
+	background: -moz-linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0) 100%);
+	background: -webkit-linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0) 100%);
+	background: linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#231f20",endColorstr="#231f20",GradientType=1); 
+}
+
+section.hero::after {
+	display: block;
+	content: '';
+	background-image: url(../img/jpg/conscious-design-pWWdJ4qx0h4-unsplash-2.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 50% 85%;
+	top: calc(var(--grid) * 3);
+	left: -0.5%;
+  filter: blur(28px);
+  /* this is the magic part */
+  height: 100%;
+  position: absolute;
+	opacity: 0.9;
+  width: 100%;
+  z-index: -1;
+}
+
+section.hero .container {
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	z-index: 2;
+	padding: calc(var(--grid) * 6);
+}
+
+section.hero .container img:nth-child(1) {
+	max-width: 160px;
+}
+
+section.hero .container img:nth-child(2) {
+	max-width: 358px;
+}
+
+section.display-cards {
+	background-color: none;
+}
+
+.display-card {
+	position: relative;
+	padding: calc(var(--grid) * 1.75);
+}
+
+.display--cards_wrapper {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.weekly-reading-bg {
+	width: 100%;
+	max-width: 60%;
+	background-image: url(../img/jpg/dan-smedley-bxLW7wdzQsA-unsplash.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 50% 85%;
+	position: relative;
+	margin: calc(var(--grid) * 20) 0;
+}
+
+.readings__overlay::before {
+	display: block;
+	content: '';
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	z-index:1;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgb(35,31,32);
+	background: -moz-linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0.7) 100%);
+	background: -webkit-linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0.7) 100%);
+	background: linear-gradient(-270deg, rgba(35,31,32,1) 25%, rgba(35,31,32,0.7) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#231f20",endColorstr="#231f20",GradientType=1); 
+}
+
+.social-bg {
+	width: 100%;
+	max-width: 30%;
+	background-image: url(../img/jpg/sarah-brown-cVt0u781VGo-unsplash.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 50% 85%;
+	position: relative;
+	margin: calc(var(--grid) * 20) 0;
+}	
+
+.personal-reading-bg {
+	background-image: url(../img/jpg/ouassima-issrae-3mykRoicNVU-unsplash-2.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 0% 50%;
+	position: relative;
+}
+ 
+.display-card__content {
+	display: block;
+	border: solid 1px var(--inner-border);
+	padding: calc(var(--grid) * 9);
+	position: relative;
+	z-index: 2;
+}
+
+.weekly-reading-bg .display-card__content--items {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
+}
+
+.personal-reading-bg .display-card__content--items {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.display-card.personal-reading-bg {
+	margin-top: calc(var(--grid) * 3);
+}
+
+.display-card.weekly-reading-bg::after {
+	display: block;
+	content: '';
+	background-image: url(../img/jpg/dan-smedley-bxLW7wdzQsA-unsplash.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 50% 85%;
+	top: calc(var(--grid) * 4);
+  filter: blur(28px);
+  /* this is the magic part */
+  height: 100%;
+  position: absolute;
+	opacity: 0.80;
+  transform: scale(0.95);
+  width: 100%;
+  z-index: -1;
+}
+
+.display-card.personal-reading-bg::after {
+	display: block;
+	content: '';
+	background-image: url(../img/jpg/ouassima-issrae-3mykRoicNVU-unsplash-2.jpg);
+	background-repeat: none;
+	background-size: cover;
+	background-position: 0% 50%;
+	top: calc(var(--grid) * 4);
+  filter: blur(28px);
+  /* this is the magic part */
+  height: 100%;
+  position: absolute;
+	opacity: 0.80;
+  transform: scale(0.95);
+  width: 100%;
+  z-index: -1;
+}
+
+.display-card__content--items {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+	height: 100%;
+	max-height: 200px;
+}
+
+.post__content--group {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.display-card__content--group {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 200px;
+}
+
+.display-card__content--group .title {
+	color: var(--white);
+	opacity: 0.3;
+	margin-bottom: var(--grid);
+}
+
+.display-card__content--group h2 {
+	font-weight: var(--weightBold);
+	display: flex;
+	flex-direction: column;
+}
+
+.display-card__content--group a {
+	text-decoration: none !important;
+	font-size: var(--small-link) !important;
+	font-weight: var(--weightBold);
+}
+
+.display-card__content--group a p::after {
+	display: block;
+	content: '';
+	width: 100%;
+	height: 1px;
+	background-color: var(--white);
+}
+
+.display-card__content--group a p::after {
+	margin-top: calc(var(--grid) * 1);
+}
+
+.display-card__content--group .title,
+.display-card__content--group h2,
+.display-card__content--group a {
+	color: var(--white) !important;
+}
+
+.post-content_diamond {
+	max-width: 18px;
+	margin-right: calc(var(--grid) * 2);
+	margin-bottom: calc(var(--grid) * 1);
+}
+
+.request-card {
+	background-color: var(--white);
+	padding: calc(var(--grid) * 5);
+	border-radius: 28px;
+	box-shadow: 0px 8px 38px rgba(0, 0, 0, 0.125);
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	width: fit-content;
+}
+
+.request-card img {
+	margin-bottom: calc(var(--grid) * 4);
+}
+
+.request-card a {
+	text-decoration: none;
+}
+
+.request-card .btn {
+	margin: 0 auto;
+	background-color: var(--dark-bg);
+}
+
+.request-card .btn p {
+	color: var(--white);
+	font-size: var(--small-link);
+	font-weight: var(--weightBold);
+	letter-spacing: 0.145rem;
+}
+
+footer {
+	background-color: var(--dark-bg);
+}
